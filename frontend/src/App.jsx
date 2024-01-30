@@ -1,15 +1,12 @@
-
-import './App.css'
+import "./App.css";
+import Home from "./components/pages/Home/Home";
 
 function App() {
-  
-
-
-  return (
-    <>
-  
-    </>
-  )
+	return (
+		<>
+			<Home></Home>
+		</>
+	);
 }
 
-export default App
+export default App;
