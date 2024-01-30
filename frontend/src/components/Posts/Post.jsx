@@ -1,11 +1,11 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Posts = () => {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		let url = "http://localhost/headless_practice/backend/wp-json/wp/v2/posts";
+		let url = `${import.meta.env.VITE_API_ROOT}/posts`;
 
 		axios
 			.get(url)
