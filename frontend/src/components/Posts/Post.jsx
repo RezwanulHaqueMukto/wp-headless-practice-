@@ -5,7 +5,7 @@ const Posts = () => {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		let url = `${import.meta.env.VITE_API_ROOT}/posts`;
+		let url = `${import.meta.env.VITE_API_ROOT}/posts/?_embed`;
 
 		axios
 			.get(url)
@@ -22,7 +22,14 @@ const Posts = () => {
 			{posts.map((post) => (
 				<div key={post.id}>
 					<h2>{post.title.rendered}</h2>
-					<div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+
+					<div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+					{post._embedded && post._embedded["wp:featuredmedia"] && (
+						<img
+							src={post._embedded["wp:featuredmedia"][0].source_url}
+							alt={post._embedded["wp:featuredmedia"][0].alt_text}
+						/>
+					)}
 				</div>
 			))}
 		</div>
