@@ -22,7 +22,7 @@ const Posts = () => {
 			{posts.map((post) => (
 				<div key={post.id}>
 					<h2>{post.title.rendered}</h2>
-
+					<a href={`/posts/${post.id}`}>test</a>
 					<div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
 					{post._embedded && post._embedded["wp:featuredmedia"] && (
 						<img
